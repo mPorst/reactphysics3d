@@ -23,6 +23,8 @@
 *                                                                               *
 ********************************************************************************/
 
+// utils
+#include "FileHelper.h"
 // Libraries
 #include "Shader.h"
 #include <cassert>
@@ -41,9 +43,16 @@ Shader::Shader() : mProgramObjectID(0) {
 // Constructor with arguments
 Shader::Shader(const std::string vertexShaderFilename, const std::string fragmentShaderFilename)
     : mProgramObjectID(0) {
-
+    
+    std::filesystem::path pathToShaders = helpers::findFolderAbove("shaders");
+    if(pathToShaders.empty())
+    {
+      assert(false && "Cannot find shaders. The shaders folder does not reside in a parent path.");
+    }
+    const std::string fullPathVertexShader = (pathToShaders / vertexShaderFilename).string();
+    const std::string fullPathFragmentShader = (pathToShaders / fragmentShaderFilename).string();
     // Create the shader
-    create(vertexShaderFilename, fragmentShaderFilename);
+    create(fullPathVertexShader, fullPathFragmentShader);
 }
 
 // Destructor
