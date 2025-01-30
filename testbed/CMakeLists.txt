@@ -179,6 +179,7 @@ target_include_directories(testbed PRIVATE
               $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/common>
               $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/scenes>
               $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/extern/nanogui/include>
+              $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/helpers>
 )
 foreach(p ${NANOGUI_EXTRA_INCS})
     target_include_directories(testbed PRIVATE $<1:${p}>)
