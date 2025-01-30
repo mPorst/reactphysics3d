@@ -22,9 +22,10 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# vim swap files
+# tooling files/folders
 #####################
 *.*sw*
+.vscode
 
 # documentation
 #####################
@@ -43,3 +44,7 @@ documentation/UserManual/*.tmp
 documentation/UserManual/*.toc
 documentation/UserManual/*.xref
 documentation/UserManual/*.xref
+
+# build folder
+#####################
+build
